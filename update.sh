@@ -1,4 +1,5 @@
 #!/bin/bash
+git pull upstream
 rm -rf zigbee2mqtt*
 git restore --source upstream/master zigbee2mqtt/
 for x in {a..c}; do
