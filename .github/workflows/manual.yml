@@ -8,18 +8,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  # This workflow contains a single job called "greet"
   testing:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: checkout repo
       uses: actions/checkout@v5
+    - name: add upstream
+      run: git remote add upstream https://github.com/zigbee2mqtt/hassio-zigbee2mqtt
     - name: list remotes
       run: git remote -v
     - name: Check PWD
       run: cat update.sh
     - name: List
-      run: ls 
+      run: ls
