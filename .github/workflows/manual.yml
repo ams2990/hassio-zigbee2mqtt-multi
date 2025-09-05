@@ -17,4 +17,6 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Check PWD
-      run: cat update.sh
+      run: pwd
+    - name: List
+      run: ls
