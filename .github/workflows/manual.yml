@@ -15,5 +15,9 @@ jobs:
       uses: actions/checkout@v5
     - name: add upstream
       run: git remote add upstream https://github.com/zigbee2mqtt/hassio-zigbee2mqtt
+    - name: configure identity
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'ams2990@users.noreply.github.com'
     - name: run script
       run: ./update.sh
