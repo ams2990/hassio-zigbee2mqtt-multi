@@ -19,4 +19,4 @@ jobs:
     - name: Check PWD
       run: pwd
     - name: List
-      run: ls
+      run: ls -R ../
