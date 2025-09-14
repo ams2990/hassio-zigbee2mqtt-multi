@@ -1,0 +1,22 @@
+name: Scheduled update workflow
+permissions:
+  contents: write
+on:
+ schedule:
+   - cron: '23 */4 * * *'
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: 0
+    - name: add upstream
+      run: git remote add upstream https://github.com/zigbee2mqtt/hassio-zigbee2mqtt
+    - name: configure identity
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+    - name: run script
+      run: ./update.sh
