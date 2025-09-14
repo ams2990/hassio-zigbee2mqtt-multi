@@ -1,4 +1,5 @@
 #!/bin/bash
+git pull --rebase=merges -X ours upstream master
 rm -rf zigbee2mqtt*
 git restore --source upstream/master zigbee2mqtt/
 for x in {a..c}; do
@@ -13,4 +14,4 @@ done
 rm -rf zigbee2mqtt/
 git add --all
 git commit -m 'Sync with upstream'
-git push
+git push --force
