@@ -1,11 +1,14 @@
 {
-  "name": "Zigbee2MQTT Edge",
-  "version": "edge",
-  "slug": "zigbee2mqtt_edge",
-  "description": "Development build of the Zigbee2MQTT add-on",
+  "name": "Zigbee2MQTT (A)",
+  "version": "2.8.0-1",
+  "slug": "zigbee2mqtt-a",
+  "description": "Use your ZigBee devices without the vendor's bridge or gateway",
+  "breaking_versions": [
+    "2.0.0-1"
+  ],
   "uart": true,
   "udev": true,
-  "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt-edge",
+  "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt",
   "startup": "application",
   "services": [
     "mqtt:need"
@@ -37,7 +40,7 @@
     }
   ],
   "ports": {
-    "8485/tcp": 8485,
+    "8485/tcp": null,
     "8099/tcp": null
   },
   "ports_description": {
@@ -45,7 +48,7 @@
     "8099/tcp": "Frontend tcp-listen port"
   },
   "options": {
-    "data_path": "/config/zigbee2mqtt",
+    "data_path": "/config/zigbee2mqtt-a",
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
@@ -57,7 +60,6 @@
     "serial": {}
   },
   "schema": {
-    "disable_tuya_default_response": "bool?",
     "data_path": "str",
     "socat": {
       "enabled": "bool?",
@@ -72,7 +74,8 @@
       "key": "str?",
       "cert": "str?",
       "user": "str?",
-      "password": "str?"
+      "password": "str?",
+      "base_topic": "str?"
     },
     "serial": {
       "port": "str?",
@@ -83,5 +86,5 @@
     "watchdog": "str?",
     "force_onboarding": "bool?"
   },
-  "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-edge-{arch}"
+  "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-{arch}"
 }
