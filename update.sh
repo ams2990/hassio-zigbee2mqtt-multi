@@ -1,7 +1,6 @@
 #!/bin/bash
 git fetch upstream master
-git checkout master
-git reset --hard upstream/master
+git merge upstream/master -s ours --no-commit
 rm -rf zigbee2mqtt*
 git restore --source upstream/master zigbee2mqtt/
 for x in {a..c}; do
