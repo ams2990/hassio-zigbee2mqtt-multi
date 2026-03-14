@@ -1,5 +1,7 @@
 #!/bin/bash
-git pull --rebase=merges -X ours upstream master
+git fetch upstream master
+git checkout master
+git reset --hard upstream/master
 rm -rf zigbee2mqtt*
 git restore --source upstream/master zigbee2mqtt/
 for x in {a..c}; do
