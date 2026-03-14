@@ -4,6 +4,7 @@ permissions:
 on:
  schedule:
    - cron: '23 */4 * * *'
+ workflow_dispatch:
 jobs:
   update:
     runs-on: ubuntu-latest
